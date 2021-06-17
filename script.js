@@ -22,12 +22,18 @@ function addName() {
   // - https://www.w3schools.com/jsref/prop_node_innertext.asp
 
   let nameElement = document.querySelector('#name');
-  nameElement.innerText = 'See script.js!';
+  nameElement.innerText = 'Jonathan Campbell';
 }
 
 function addFavoriteThings() {
   console.log('Called addFavoriteThings()');
-
+let favoritethings = document.querySelector('#favthings')
+favoritethings.innerHTML = `
+<li> Writing
+<li> Walking
+<li> Reading
+<li> Playing games
+`
   // 1. Get a reference to <ul id="favthings">
   // 2. Create a few list items representing your favorite things
   // 3. Add them to append them to favthings
@@ -40,6 +46,8 @@ function addFavoriteThings() {
 
 function replaceImage() {
   console.log('Called replaceImage()');
+  var image = document.querySelector('#picture');
+  image.setAttribute("src", "hardcard.png");
 
   // Change the puppy picture to a picture of your choosing
 
@@ -50,6 +58,13 @@ function replaceImage() {
 
 function changeCodeStatus() {
   console.log('Called changeCodeStatus()');
+  var meme = document.querySelector('#codestatus');
+  codestatus.innerHTML =""
+  var meme = document.createElement("img");
+  meme.setAttribute("src", "gunbran.png");
+  meme.setAttribute("width", "300");
+  meme.setAttribute("height", "300");
+  codestatus.appendChild(meme);
 
   // 1. Get a reference to <div id="codestatus">
   // 2. Create image element containing a sweet ol' meme
@@ -89,7 +104,14 @@ informationForm.addEventListener('submit', function(event) {
   event.preventDefault(); // You will want this here. Remove it and see what changes.
 
   console.log('Form submitted');
-
+  var Box1 = document.getElementById('fname').value;
+  document.getElementById("firstname").textContent = Box1;
+  var Box2 = document.getElementById('lname').value;
+  document.getElementById("lastname").textContent = Box2;
+  var Box3 = document.getElementById('cars').value;
+  document.getElementById("chosencar").textContent = Box3;
+  var Box4 = document.getElementById('icecreamyes', 'icecreamno').value;
+  document.getElementById("icecream").innerHTML = Box4;
   // Your job:
   //   1. Get information typed into the form
   //   2. Display that info in "Display that info here" section
