@@ -104,14 +104,18 @@ informationForm.addEventListener('submit', function(event) {
   event.preventDefault(); // You will want this here. Remove it and see what changes.
 
   console.log('Form submitted');
-  var Box1 = document.getElementById('fname').value;
-  document.getElementById("firstname").textContent = Box1;
-  var Box2 = document.getElementById('lname').value;
-  document.getElementById("lastname").textContent = Box2;
-  var Box3 = document.getElementById('cars').value;
-  document.getElementById("chosencar").textContent = Box3;
-  var Box4 = document.getElementById('icecreamyes', 'icecreamno').value;
-  document.getElementById("icecream").innerHTML = Box4;
+  const formData= new FormData(event.target);
+  const formProps = Object.fromEntries(formData);
+  document.getElementById('firstname').innerHTML = formProps.fname;
+  document.getElementById('lastname').innerHTML = formProps.lname;
+  document.getElementById('chosencar').innerHTML = formProps.cars;
+  document.getElementById('icecreamstatus').innerHTML = formProps.icecream;
+  
+
+  let humancheck= document.querySelector('#humancheck').checked;
+  let codercheck= document.querySelector('#codercheck').checked;
+  document.querySelector('#checks').innerHTML = `${humanCheck} ${codercheck}`;
+
   // Your job:
   //   1. Get information typed into the form
   //   2. Display that info in "Display that info here" section
@@ -133,7 +137,7 @@ informationForm.addEventListener('submit', function(event) {
 // then log something to the console
 
 // Fill in ________ to get a reference to the correct button on the page
-let consoleLogButton = document.querySelector('#________');
+let consoleLogButton = document.querySelector('#todos');
 
 // Log something when that button is clicked
 consoleLogButton.addEventListener('click', function() {
